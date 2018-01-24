@@ -174,21 +174,6 @@
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <script src="js/fancybox/dist/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
-function loadImages(i){
-    i = i || 1;
-    var img = new Image();    
-    img.onload = function(){
-    	document.body.appendChild(img);
-        loadImages(++i);
-    }
-    img.src = 'css/img/slide/report/' +i + '.jpg';
-	console.log(img.src)
-}
-
-loadImages();
-console.log(loadImages())
-
-
 $(document).ready(function() {
     $('#slider1 , #slider2').bxSlider({
       mode: 'fade',
