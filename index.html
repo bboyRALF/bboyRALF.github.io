@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="block-head">
+<a href="tel:+72222222222"><div class="phone-ico"></div></a>
 	<div class="block-content">
 		<div class="head-foto"></div>
 		<div class="about">
@@ -66,68 +67,8 @@
 			<div class="sub-header">Лютая вещь, очень рекомендую</div>
 			<div class="album">
 				 <div class="" id="slider1">
-				 	 <a href="css/img/slide/report/1.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f1 image"></div>
-					 </a>
-					 <a href="css/img/slide/report/2.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f2 image"></div>
-					 </a>
-					 <a href="css/img/slide/report/3.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f3 image"></div>
-					</a>
-					<a href="css/img/slide/report/4.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f4 image"></div>
-					</a>
-					<a href="css/img/slide/report/5.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f5 image"></div>
-					</a>
-					<a href="css/img/slide/report/6.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f6 image"></div>
-					</a>
-					<a href="css/img/slide/report/7.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f7 image"></div>
-					</a>
-					<a href="css/img/slide/report/8.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f8 image"></div>
-					</a>
-					<a href="css/img/slide/report/9.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f9 image"></div>
-					</a>
-					<a href="css/img/slide/report/10.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f10 image"></div>
-					</a>
-					<a href="css/img/slide/report/11.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f11 image"></div>
-					</a>
-					<a href="css/img/slide/report/12.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f12 image"></div>
-					</a>
-					<a href="css/img/slide/report/13.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f13 image"></div>
-					</a>
-					<a href="css/img/slide/report/14.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f14 image"></div>
-					</a>
-					<a href="css/img/slide/report/15.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f15 image"></div>
-					</a>
-					<a href="css/img/slide/report/16.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f16 image"></div>
-					</a>
-					<a href="css/img/slide/report/17.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f17 image"></div>
-					</a>
-					<a href="css/img/slide/report/18.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f18 image"></div>
-					</a>
-					<a href="css/img/slide/report/19.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f19 image"></div>
-					</a>
-					<a href="css/img/slide/report/20.jpg"  class="img-size" data-fancybox="images">   
-						<div class="f20 image"></div>
-					</a>
-					
 				 </div>
+				
 				 <div class="clear"></div>
 			</div>
 		</div>
@@ -139,6 +80,26 @@
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <script src="js/fancybox/dist/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
+
+function loadImages(i){
+      var size=21;
+	   var imgs = document.getElementById('slider1');
+	  for (var i=1;i<size;i++){
+	  var path ='css/img/slide/report/' +i + '.jpg';
+	  
+	 var photo=document.createElement('span')
+	 photo.innerHTML='<a href="'+path+'"  class="img-size" data-fancybox="images"><img src ="'+path+'" class="image"/></a>';
+		imgs.appendChild(photo);
+		 
+	 }
+
+ 
+ 	 
+ }
+ 
+ loadImages();
+
+ 
 $(document).ready(function() {
     $('#slider1 , #slider2').bxSlider({
       mode: 'fade',
@@ -157,7 +118,7 @@ $(document).ready(function() {
         parentEl    : '.fancybox-container',  // Container is injected into this element
         axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
     },
-    toolbar         : false,
+    toolbar         : true,
     clickContent    : false
     });
 </script>
