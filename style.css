@@ -92,9 +92,10 @@ body{background-image:url(img/overlay.png), linear-gradient(45deg, #191f39 15%, 
 url('bazhanovc-webfont.woff') format('woff');font-weight:normal;font-style:normal;}
 @font-face{font-family:'bazhanovcbold';src:url('bazhanovc-bold-webfont.woff2') format('woff2'),
 url('bazhanovc-bold-webfont.woff') format('woff');font-weight:normal;font-style:normal;}
+.phone-ico{background:url(img/phone.png) no-repeat;width:60px;height:60px;position:fixed;background-size:cover;right:130px;bottom:150px;z-index:999999;}
 @media screen and (max-width:900px){.phone-ico{right:13px;}
 }
-.phone-ico{background:url(img/phone.png) no-repeat;width:60px;height:60px;position:fixed;background-size:cover;right:130px;bottom:150px;z-index:999999;}
+
 .block-head{padding-top:50px;}
 .block-head .head-foto{background:url(img/Sneg-1.jpg)no-repeat 18% 50%;width:100%;height:300px;background-size:cover;}
 .block-head .about{background:white;}
