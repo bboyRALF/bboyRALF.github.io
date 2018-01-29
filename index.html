@@ -111,7 +111,7 @@ $(document).ready(function() {
 });
 
  
-    $('[data-fancybox="images"]').fancybox({
+    $('[data-fancybox="gallery"]').fancybox({
      thumbs : {
         autoStart   : true,                  // Display thumbnails on opening
         hideOnClose : true,                   // Hide thumbnail grid when closing animation starts
@@ -119,6 +119,16 @@ $(document).ready(function() {
         axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
     },
     toolbar         : true,
+	buttons : [
+       // 'slideShow',
+       // 'fullScreen',
+      //  'thumbs',
+        'share',
+        //'download',
+        //'zoom',
+        'close'
+    ],
+
     clickContent    : false
     });
 </script>
