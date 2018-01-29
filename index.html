@@ -50,7 +50,7 @@
 		</div>
 	</div>
 </div>
-<div class="block-retro">
+<!--div class="block-retro">
 	<div class="block-content">
 		<div class="elem">
 		<div class="black-head">Мы ведем фото и видео съемку</div>
@@ -59,7 +59,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-</div>
+</div-->
 <div id="foto" class="block-foto">
 	<div class="block-content bg-white">
 		<div class="report">
@@ -72,7 +72,46 @@
 				 <div class="clear"></div>
 			</div>
 		</div>
-	
+		<div class="fotoset">
+			<div class="header">Фотосеты</div>
+			<div class="sub-header">Лютая вещь, очень рекомендую</div>
+			<div class="album">
+				 <div class="" id="slider2">
+				 </div>
+				
+				 <div class="clear"></div>
+			</div>
+		</div>
+		<div class="mary">
+			<div class="header">Свадебная съемка</div>
+			<div class="sub-header">Лютая вещь, очень рекомендую</div>
+			<div class="album">
+				 <div class="" id="slider3">
+				 </div>
+				
+				 <div class="clear"></div>
+			</div>
+		</div>
+		<div class="child">
+			<div class="header">Детская фотосъемка</div>
+			<div class="sub-header">Лютая вещь, очень рекомендую</div>
+			<div class="album">
+				 <div class="" id="slider4">
+				 </div>
+				
+				 <div class="clear"></div>
+			</div>
+		</div>
+		<div class="newborn">
+			<div class="header">Новорожденные</div>
+			<div class="sub-header">Лютая вещь, очень рекомендую</div>
+			<div class="album">
+				 <div class="" id="slider5">
+				 </div>
+				
+				 <div class="clear"></div>
+			</div>
+		</div>
 	</div>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -81,14 +120,14 @@
   <script src="js/fancybox/dist/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
 
-function loadImages(i){
+function loadImagesReport(i){
       var size=21;
 	   var imgs = document.getElementById('slider1');
 	  for (var i=1;i<size;i++){
 	  var path ='css/img/slide/report/' +i + '.jpg';
 	  
 	 var photo=document.createElement('span')
-	 photo.innerHTML='<a href="'+path+'"  class="img-size" data-fancybox="gallery"><img src ="'+path+'" class="image"/></a>';
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="galleryreport"><img src ="'+path+'" /></a>';
 		imgs.appendChild(photo);
 		 
 	 }
@@ -97,11 +136,83 @@ function loadImages(i){
  	 
  }
  
- loadImages();
+ loadImagesReport();
+
+ function loadImagesPortret(i){
+      var size=20;
+	   var imgs = document.getElementById('slider2');
+	  for (var i=1;i<size;i++){
+	  var path ='css/img/slide/portret/' +i + '.jpg';
+	  
+	 var photo=document.createElement('span')
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="galleryportret"><img src ="'+path+'" /></a>';
+		imgs.appendChild(photo);
+		 
+	 }
 
  
-$(document).ready(function() {
-    $('#slider1 , #slider2').bxSlider({
+ 	 
+ }
+ 
+ loadImagesPortret();
+ 
+function loadImagesMary(i){
+      var size=15;
+	   var imgs = document.getElementById('slider3');
+	  for (var i=1;i<size;i++){
+	  var path ='css/img/slide/svadba/' +i + '.jpg';
+	  
+	 var photo=document.createElement('span')
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="gallerysvadba"><img src ="'+path+'"/></a>';
+		imgs.appendChild(photo);
+		 
+	 }
+
+ 
+ 	 
+ }
+ 
+ loadImagesMary();
+ 
+ 
+ function loadImagesChild(i){
+      var size=13;
+	   var imgs = document.getElementById('slider4');
+	  for (var i=1;i<size;i++){
+	  var path ='css/img/slide/child/' +i + '.jpg';
+	  
+	 var photo=document.createElement('span')
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="gallerychild"><img src ="'+path+'"/></a>';
+		imgs.appendChild(photo);
+		 
+	 }
+
+ 
+ 	 
+ }
+ 
+ loadImagesChild();
+ 
+  function loadImagesNewBorn(i){
+      var size=9;
+	   var imgs = document.getElementById('slider5');
+	  for (var i=1;i<size;i++){
+	  var path ='css/img/slide/newborn/' +i + '.jpg';
+	  
+	 var photo=document.createElement('span')
+	 photo.innerHTML='<a href="'+path+'" id="newborn" class="img-size image" data-fancybox="gallerynewborn"><img src ="'+path+'" /></a>';
+		imgs.appendChild(photo);
+		 
+	 }
+
+ 
+ 	 
+ }
+ 
+ loadImagesNewBorn();
+ 
+ $(document).ready(function() {
+    $('#slider1,#slider2,#slider3,#slider4,#slider5').bxSlider({
       mode: 'fade',
       auto: true,
 	  autoHover: true,
@@ -111,7 +222,7 @@ $(document).ready(function() {
 });
 
  
-    $('[data-fancybox="gallery"]').fancybox({
+    $('[data-fancybox="galleryreport"]').fancybox({
      thumbs : {
         autoStart   : true,                  // Display thumbnails on opening
         hideOnClose : true,                   // Hide thumbnail grid when closing animation starts
@@ -119,6 +230,126 @@ $(document).ready(function() {
         axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
     },
     toolbar         : true,
+	image : {
+
+        // Wait for images to load before displaying
+        // Requires predefined image dimensions
+        // If 'auto' - will zoom in thumbnail if 'width' and 'height' attributes are found
+        preload : "auto"
+
+    },
+	buttons : [
+       // 'slideShow',
+       // 'fullScreen',
+      //  'thumbs',
+        'share',
+        //'download',
+        //'zoom',
+        'close'
+    ],
+
+    clickContent    : false
+    });
+	  $('[data-fancybox="galleryportret"]').fancybox({
+     thumbs : {
+        autoStart   : true,                  // Display thumbnails on opening
+        hideOnClose : true,                   // Hide thumbnail grid when closing animation starts
+        parentEl    : '.fancybox-container',  // Container is injected into this element
+        axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
+    },
+    toolbar         : true,
+	image : {
+
+        // Wait for images to load before displaying
+        // Requires predefined image dimensions
+        // If 'auto' - will zoom in thumbnail if 'width' and 'height' attributes are found
+        preload : "auto"
+
+    },
+	buttons : [
+       // 'slideShow',
+       // 'fullScreen',
+      //  'thumbs',
+        'share',
+        //'download',
+        //'zoom',
+        'close'
+    ],
+
+    clickContent    : false
+    });
+	  $('[data-fancybox="gallerysvadba"]').fancybox({
+     thumbs : {
+        autoStart   : true,                  // Display thumbnails on opening
+        hideOnClose : true,                   // Hide thumbnail grid when closing animation starts
+        parentEl    : '.fancybox-container',  // Container is injected into this element
+        axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
+    },
+    toolbar         : true,
+	image : {
+
+        // Wait for images to load before displaying
+        // Requires predefined image dimensions
+        // If 'auto' - will zoom in thumbnail if 'width' and 'height' attributes are found
+        preload : "auto"
+
+    },
+	buttons : [
+       // 'slideShow',
+       // 'fullScreen',
+      //  'thumbs',
+        'share',
+        //'download',
+        //'zoom',
+        'close'
+    ],
+
+    clickContent    : false
+    });
+	  $('[data-fancybox="gallerychild"]').fancybox({
+     thumbs : {
+        autoStart   : true,                  // Display thumbnails on opening
+        hideOnClose : true,                   // Hide thumbnail grid when closing animation starts
+        parentEl    : '.fancybox-container',  // Container is injected into this element
+        axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
+    },
+    toolbar         : true,
+	image : {
+
+        // Wait for images to load before displaying
+        // Requires predefined image dimensions
+        // If 'auto' - will zoom in thumbnail if 'width' and 'height' attributes are found
+        preload : "auto"
+
+    },
+	buttons : [
+       // 'slideShow',
+       // 'fullScreen',
+      //  'thumbs',
+        'share',
+        //'download',
+        //'zoom',
+        'close'
+    ],
+
+    clickContent    : false
+    });
+	  $('[data-fancybox="gallerynewborn"]').fancybox({
+     thumbs : {
+        autoStart   : true,                  // Display thumbnails on opening
+        hideOnClose : true,                   // Hide thumbnail grid when closing animation starts
+        parentEl    : '.fancybox-container',  // Container is injected into this element
+        axis        : 'x'                     // Vertical (y) or horizontal (x) scrolling
+    },
+    toolbar         : true,
+	image : {
+
+        // Wait for images to load before displaying
+        // Requires predefined image dimensions
+        // If 'auto' - will zoom in thumbnail if 'width' and 'height' attributes are found
+        preload : "auto"
+
+    },
 	buttons : [
        // 'slideShow',
        // 'fullScreen',
