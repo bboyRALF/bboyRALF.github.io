@@ -118,6 +118,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <script src="js/fancybox/dist/jquery.fancybox.min.js"></script>
+<!-- jsDeliver -->
+    <script type="text/javascript" src="js/lazy/jquery.lazy.min.js"></script>
+    <script type="text/javascript" src="js/lazy/jquery.lazy.plugins.min.js"></script>
+ 
 <script type="text/javascript">
 
 function loadImagesReport(i){
@@ -127,7 +131,7 @@ function loadImagesReport(i){
 	  var path ='css/img/slide/report/' +i + '.jpg';
 	  
 	 var photo=document.createElement('span')
-	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="galleryreport"><img src ="'+path+'" /></a>';
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="galleryreport"><img class="lazy"  src ="'+path+'" data-src="'+path+'" /></a>';
 		imgs.appendChild(photo);
 		 
 	 }
@@ -145,7 +149,7 @@ function loadImagesReport(i){
 	  var path ='css/img/slide/portret/' +i + '.jpg';
 	  
 	 var photo=document.createElement('span')
-	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="galleryportret"><img src ="'+path+'" /></a>';
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="galleryportret"><img class="lazy" src ="'+path+'" data-src ="'+path+'" /></a>';
 		imgs.appendChild(photo);
 		 
 	 }
@@ -163,7 +167,7 @@ function loadImagesMary(i){
 	  var path ='css/img/slide/svadba/' +i + '.jpg';
 	  
 	 var photo=document.createElement('span')
-	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="gallerysvadba"><img src ="'+path+'"/></a>';
+	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="gallerysvadba"><img class="lazy" src ="'+path+'" data-src ="'+path+'"/></a>';
 		imgs.appendChild(photo);
 		 
 	 }
@@ -182,7 +186,7 @@ function loadImagesMary(i){
 	  var path ='css/img/slide/child/' +i + '.jpg';
 	  
 	 var photo=document.createElement('span')
-	 photo.innerHTML='<a href="'+path+'"  class="img-size image" data-fancybox="gallerychild"><img src ="'+path+'"/></a>';
+	 photo.innerHTML='<a href="'+path+'"  class="lazy img-size image" data-fancybox="gallerychild"><img class="lazy" src ="'+path+'"  data-src ="'+path+'"/></a>';
 		imgs.appendChild(photo);
 		 
 	 }
@@ -200,7 +204,7 @@ function loadImagesMary(i){
 	  var path ='css/img/slide/newborn/' +i + '.jpg';
 	  
 	 var photo=document.createElement('span')
-	 photo.innerHTML='<a href="'+path+'" id="newborn" class="img-size image" data-fancybox="gallerynewborn"><img src ="'+path+'" /></a>';
+	 photo.innerHTML='<a href="'+path+'" id="newborn" class="lazy img-size image" data-fancybox="gallerynewborn"><img class="lazy" src ="'+path+'" data-src ="'+path+'" /></a>';
 		imgs.appendChild(photo);
 		 
 	 }
@@ -210,15 +214,28 @@ function loadImagesMary(i){
  }
  
  loadImagesNewBorn();
- 
+
  $(document).ready(function() {
-    $('#slider1,#slider2,#slider3,#slider4,#slider5').bxSlider({
+	var slider_config = {
+		mode: 'horizontal', // place all slider options here
+        onSlideBefore: function($slideElement, oldIndex, newIndex){
+            var $lazy = $slideElement.find(".lazy")
+            var $load = $lazy.attr("data-src");
+            $lazy.attr("src",$load).removeClass("lazy");
+        }
+	}
+    /*$('#slider1,#slider2,#slider3,#slider4,#slider5').bxSlider({
       mode: 'fade',
       auto: true,
 	  autoHover: true,
       pause: 5000,
-    });
-     
+	   onSlideBefore: function($slideElement, oldIndex, newIndex){
+            var $lazy = $slideElement.find(".lazy")
+            var $load = $lazy.attr("data-src");
+            $lazy.attr("src",$load).removeClass("lazy");
+        }
+    });*/
+     var slider = $('#slider1,#slider2,#slider3,#slider4,#slider5').bxSlider(slider_config);
 });
 
  
