@@ -89,7 +89,7 @@ html{
 	} 
 @media screen and (min-width:901px){
 	
- .sb{padding: 0 90px;}
+ .sb{padding: 0 90px;font-size: 30px;}
  }
 @media screen and (max-width:900px){ 
 .block-content{min-width: 600px;margin:0;}
@@ -126,7 +126,11 @@ url('bazhanovc-bold-webfont.woff') format('woff');font-weight:normal;font-style:
 
 @media screen and (max-width:900px){
 	.phone-ico{right:13px;}
-	.phone{display:block;};
+	.phone{display:block;}
+	.sb{
+    font-size: 22px;
+    padding-bottom: 25px;
+}
 }@media screen and (min-width:900px){
 	.phone{display:none;};
 }
